@@ -21,38 +21,26 @@ function passwordLengthPrompt(){
   }else if (isNaN(passLength)) {
     alert("Password length must be a number. Try again.");
     passwordLengthPrompt();
-  }else {
   }
   return passLength;
 }
 
-// Upper case character check prompt function
+// Include upper case character prompt function
 function upperCasePrompt() {
   upperCase = confirm("Do you want to include upper case letters? \nYes = OK No =Cancel");
-  // upperCaseChat = upperCaseChar.toLowerCase();
-  if (upperCase == true) {
     return upperCase;
-  }else {
-    return upperCase;
-  }
 }
 
-//Include Numeric characters prompt function
+// Include numeric characters prompt function
 function numericPrompt() {
   numberChar = confirm("Do you want to include numbers? \nYes = OK No = Cancel");
-  // numberChar = numberChar.toLowerCase();
-  if(numberChar==true) {
     return numberChar;
-  }else {
-    return numberChar;
-  }
 }
 
 // Include special characters prompt function
 function specialCharPrompt() {
   specialChar =confirm("Do you want to include special characters? \nYes = OK No = Cancel");
-  // specialChar = specialChar.toLowerCase();
-  return specialChar;
+    return specialChar;
 }
 
 
@@ -66,6 +54,7 @@ numericPrompt();
 console.log(numberChar);
 specialCharPrompt();
 console.log(specialChar);
+//set initial lowercase character set because they are always included
 var includeCharacters = lowerCaseLetters;
 var genPassword = "";
 
@@ -74,7 +63,24 @@ if (upperCase && numberChar && specialChar){
   includeCharacters += upperCaseLetters + numericCharacters;
 }else if (upperCase && numberChar){
   includeCharacters +=upperCaseLetters + numericCharacters;
+}else if (numberChar && specialChar){
+  includeCharacters += numericCharacters + specialCharacters;
+}else if (upperCase && specialChar){
+  includeCharacters += upperCaseLetters + specialCharacters;
+}else if (upperCase){
+  includeCharacters += upperCaseLetters;
+}else if (numberChar){
+  includeCharacters += numericCharacters;
+}else if (specialChar){
+  includeCharacters += specialCharacters;
+}else{
+  includeCharacters === lowerCaseLetters;
 }
+
+for (var i=0; i<passLength; i++) {
+  genPassword  += includeCharacters.charAt(Math.floor(Math.random()* includeCharacters.length));
+}
+return genPassword;
 }
 
 // Write password to the #password input
@@ -87,11 +93,3 @@ function writePassword() {
 }
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
-
-// prompts
-// length of password (between 8 and 128)
-// character types upper, lower, numeric, and/or special characters
-// validate input and at least one character type should be selected
-// password generates
-// password displayed in alert or written on page
