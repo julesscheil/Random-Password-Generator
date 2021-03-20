@@ -5,6 +5,7 @@ var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var lowerCase = "abcdefghijklmnopqrstuvwxyz";
 var numericChar = "0123456789";
 var specialChar = "!@#$%^&*()_-+={}[];:'`~<,>.?/|"
+var upperCaseChar;
 
 // Password length prompt function
 function passwordLengthPrompt(){
@@ -24,7 +25,19 @@ function passwordLengthPrompt(){
 }
 passwordLengthPrompt();
 
-//
+// Upper case character check prompt function
+function upperCasePrompt() {
+  upperCaseChar = confirm("Do you want to include upper case letters? \nYes =ok No =Cancel");
+  // upperCaseChat = upperCaseChar.toLowerCase();
+  if (upperCaseChar == true) {
+    return upperCaseChar;
+  }else {
+    return upperCaseChar;
+  }
+}
+upperCasePrompt();
+
+
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
