@@ -8,22 +8,23 @@ var specialChar = "!@#$%^&*()_-+={}[];:'`~<,>.?/|"
 
 // Password length prompt function
 function passwordLengthPrompt(){
-  passwordLength = prompt("How many characters would you like your password to be? (8-128 characters)");
-  if (passwordLength<8) {
+  passLength = prompt("How many characters would you like your password to be? (8-128 characters)");
+  if (passLength<8) {
     alert("Password length too short, must be between 8 - 128 characters. Try again.");
     passwordLengthPrompt();
-  } else if (passwordLength>128) {
+  } else if (passLength>128) {
     alert("Password length too long, must be between 8-128 characters. Try again.")
     passwordLengthPrompt()
-  }else if (isNaN(passwordLength)) {
+  }else if (isNaN(passLength)) {
     alert("Password length must be a number. Try again.");
     passwordLengthPrompt();
   }else {
   }
-  return passwordLength;
+  return passLength;
 }
 passwordLengthPrompt();
 
+//
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
