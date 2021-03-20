@@ -1,12 +1,13 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 var passLength;
-var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-var lowerCase = "abcdefghijklmnopqrstuvwxyz";
-var numericChar = "0123456789";
-var specialChar = "!@#$%^&*()_-+={}[];:'`~<,>.?/|"
-var upperCaseChar;
+var upperCaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var lowerCaseLetters = "abcdefghijklmnopqrstuvwxyz";
+var numericCharacters = "0123456789";
+var specialCharacters = "!@#$%^&*()_-+={}[];:'`~<,>.?/|"
+var upperCase;
 var numberChar;
+var specialChar;
 
 // Password length prompt function
 function passwordLengthPrompt(){
@@ -24,31 +25,57 @@ function passwordLengthPrompt(){
   }
   return passLength;
 }
-passwordLengthPrompt();
 
 // Upper case character check prompt function
 function upperCasePrompt() {
-  upperCaseChar = confirm("Do you want to include upper case letters? \nYes = OK No =Cancel");
+  upperCase = confirm("Do you want to include upper case letters? \nYes = OK No =Cancel");
   // upperCaseChat = upperCaseChar.toLowerCase();
-  if (upperCaseChar == true) {
-    return upperCaseChar;
+  if (upperCase == true) {
+    return upperCase;
   }else {
-    return upperCaseChar;
+    return upperCase;
   }
 }
-upperCasePrompt();
 
 //Include Numeric characters prompt function
 function numericPrompt() {
   numberChar = confirm("Do you want to include numbers? \nYes = OK No = Cancel");
-  numberChar = numberChar.toLowerCase();
+  // numberChar = numberChar.toLowerCase();
   if(numberChar==true) {
     return numberChar;
   }else {
     return numberChar;
   }
 }
+
+// Include special characters prompt function
+function specialCharPrompt() {
+  specialChar =confirm("Do you want to include special characters? \nYes = OK No = Cancel");
+  // specialChar = specialChar.toLowerCase();
+  return specialChar;
+}
+
+
+// Generate password function using user input
+function generatePassword() {
+passwordLengthPrompt();
+console.log(passLength);
+upperCasePrompt();
+console.log(upperCase);
 numericPrompt();
+console.log(numberChar);
+specialCharPrompt();
+console.log(specialChar);
+var includeCharacters = lowerCaseLetters;
+var genPassword = "";
+
+// Creates which characters to include
+if (upperCase && numberChar && specialChar){
+  includeCharacters += upperCaseLetters + numericCharacters;
+}else if (upperCase && numberChar){
+  includeCharacters +=upperCaseLetters + numericCharacters;
+}
+}
 
 // Write password to the #password input
 function writePassword() {
@@ -58,16 +85,6 @@ function writePassword() {
   passwordText.value = password;
 
 }
-
-// Generate password function
-function generatePassword() {
-  
-  //code to ask user for parameters
-  //use password to fill parameters
-  //return password
-  return "Temporary Password";
-}
-
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
