@@ -4,4 +4,4 @@ This site generates a random password based on user inputs. Asks user if they wa
 Here is what the site looks like:
 ![Portfolio Site](./Assets/screenshot.png)
 ## Deployed Site
-Here is the link to generate your password on the deployed site: [PortfolioSite]("https://julesscheil.github.io/Random-Password-Generator/")
+Here is the link to generate your password on the deployed site: [Deployed Site](https://julesscheil.github.io/Random-Password-Generator/)
