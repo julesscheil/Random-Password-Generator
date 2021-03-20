@@ -56,7 +56,7 @@ function generatePassword() {
 
   // Creates which characters to include
   if (upperCase && numberChar && specialChar) {
-    includeCharacters += upperCaseLetters + numericCharacters;
+    includeCharacters += upperCaseLetters + numericCharacters + specialCharacters;
   } else if (upperCase && numberChar) {
     includeCharacters += upperCaseLetters + numericCharacters;
   } else if (numberChar && specialChar) {
